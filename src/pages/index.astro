@@ -1,0 +1,70 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Icon } from 'astro-icon/components';
+import { socialLinks } from '@/site-config';  
+const socialLinksArray = Object.values(socialLinks);
+---
+
+<Layout>
+  <!-- Full-width Background Section -->
+  <section class="w-full bg-gray-100 dark:bg-gray-900 py-12 px-6 lg:px-16">
+    <div class="flex flex-col items-center text-center max-w-3xl mx-auto">
+      <!-- Contact Card -->
+      <div class="bg-white dark:bg-gray-800 shadow-lg rounded-xl p-8 w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl">
+        <!-- Profile Image (Auto-Scaling) -->
+        <img 
+          src="https://cdn.tinkernerd.dev/profile.jpg" 
+          alt="Nick Stull" 
+          class="w-24 sm:w-32 md:w-40 lg:w-48 h-auto rounded-full mb-4 shadow-md object-cover mx-auto"
+        />
+
+        <h2 class="text-3xl font-semibold">Nick Stull</h2>
+        <p class="text-lg text-gray-600 dark:text-gray-300">Developer & Tech Enthusiast</p>
+
+        <!-- Intro Text: NOW VISIBLE ON MOBILE -->
+        <p class="text-md text-gray-600 dark:text-gray-300 mt-4">
+          Hi, I’m <span class="font-semibold">Nick</span>—A developer and tech enthusiast.
+          <br>
+          Feel free to explore my links below:
+        </p>  
+
+        <div class="mt-4 space-y-2 text-md">
+          <p>Email: 
+            <a href="mailto:nick@tinkernerd.dev" class="text-blue-500 hover:underline">
+              nick@tinkernerd.dev
+            </a>
+          </p>
+          <p>Website: 
+            <a href="https://tinkernerd.dev" class="text-blue-500 hover:underline">
+              tinkernerd.dev
+            </a>
+          </p>
+        </div>
+
+        <!-- Social Links -->
+        <div class="flex justify-center gap-4 mt-4">
+          {socialLinksArray.map((link) => (
+            <a
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-gray-600 dark:text-gray-300 hover:text-blue-500 transition-all"
+              aria-label={link.title}
+            >
+              <Icon name={link.icon} class="w-6 h-6" />
+            </a>
+          ))}
+        </div>
+
+        <!-- Download VCF Button (Now Points to /Nicholas-Stull.vcf) -->
+        <a 
+          href="/Nick-Stull.vcf" 
+          download="Nick-Stull.vcf" 
+          class="mt-6 inline-block bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-all transform hover:scale-105"
+        >
+          Download Contact Card
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
