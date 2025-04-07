@@ -1,70 +1,116 @@
 ---
-import Layout from "@/layouts/Layout.astro";
 import { Icon } from 'astro-icon/components';
 import { socialLinks } from '@/site-config';  
 const socialLinksArray = Object.values(socialLinks);
+import { siteConfig } from "@/site-config";
+import "../styles/global.css";
+
+const endpoint = import.meta.env.PUBLIC_FORMSPREE_ENDPOINT;
+
 ---
 
-<Layout>
-  <!-- Full-width Background Section -->
-  <section class="w-full bg-gray-100 dark:bg-gray-900 py-12 px-6 lg:px-16">
-    <div class="flex flex-col items-center text-center max-w-3xl mx-auto">
-      <!-- Contact Card -->
-      <div class="bg-white dark:bg-gray-800 shadow-lg rounded-xl p-8 w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-2xl">
-        <!-- Profile Image (Auto-Scaling) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+<meta name="generator" content={Astro.generator} />
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+<title>{siteConfig.title}</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" /><link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  /><link
+    href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet"
+  />
+</head>
+  <body class="flex flex-col items-center justify-center min-h-screen p-4">  <!-- Full-width Background Section -->
+  <section class="w-full py-12 px-6 lg:px-16">
+    <div class="flex flex-col lg:flex-row gap-12 max-w-6xl mx-auto">
+      
+    <!-- About Section (Left) -->
+    <div class="border border-white rounded-xl p-8 w-full lg:w-1/2">
+      <!-- Profile Image -->
+      <div class="flex justify-center lg:justify-start mb-6">
         <img 
           src="https://cdn.tinkernerd.dev/profile.jpg" 
           alt="Nick Stull" 
-          class="w-24 sm:w-32 md:w-40 lg:w-48 h-auto rounded-full mb-4 shadow-md object-cover mx-auto"
+          class="w-40 h-40 rounded-xl object-cover shadow-md"
         />
-
-        <h2 class="text-3xl font-semibold">Nick Stull</h2>
-        <p class="text-lg text-gray-600 dark:text-gray-300">Developer & Tech Enthusiast</p>
-
-        <!-- Intro Text: NOW VISIBLE ON MOBILE -->
-        <p class="text-md text-gray-600 dark:text-gray-300 mt-4">
-          Hi, I’m <span class="font-semibold">Nick</span>—A developer and tech enthusiast.
-          <br>
-          Feel free to explore my links below:
-        </p>  
-
-        <div class="mt-4 space-y-2 text-md">
-          <p>Email: 
-            <a href="mailto:nick@tinkernerd.dev" class="text-blue-500 hover:underline">
-              nick@tinkernerd.dev
-            </a>
-          </p>
-          <p>Website: 
-            <a href="https://tinkernerd.dev" class="text-blue-500 hover:underline">
-              tinkernerd.dev
-            </a>
-          </p>
-        </div>
-
-        <!-- Social Links -->
-        <div class="flex justify-center gap-4 mt-4">
-          {socialLinksArray.map((link) => (
-            <a
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-gray-600 dark:text-gray-300 hover:text-blue-500 transition-all"
-              aria-label={link.title}
-            >
-              <Icon name={link.icon} class="w-6 h-6" />
-            </a>
-          ))}
-        </div>
-
-        <!-- Download VCF Button (Now Points to /Nicholas-Stull.vcf) -->
-        <a 
-          href="/Nick-Stull.vcf" 
-          download="Nick-Stull.vcf" 
-          class="mt-6 inline-block bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-all transform hover:scale-105"
-        >
-          Download Contact Card
-        </a>
       </div>
+
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-1">Nick Stull</h2>
+      <p class="text-xl text-gray-600 dark:text-gray-300 mb-4">Developer & Tech Enthusiast</p>
+
+      <p class="text-base text-gray-700 dark:text-gray-300 mb-4">
+        Hi, I’m <span class="font-semibold">Nick</span> — a developer and tech enthusiast with a passion for building cool stuff. Feel free to explore my links below or send me a message!
+      </p>  
+
+      <div class="space-y-2 text-base text-gray-700 dark:text-gray-300 mb-4">
+        <p>
+          <span class="font-medium">Email:</span>
+          <a href="mailto:nick@tinkernerd.dev" class="text-blue-500 hover:underline ml-1">
+            nick@tinkernerd.dev
+          </a>
+        </p>
+        <p>
+          <span class="font-medium">Website:</span>
+          <a href="https://tinkernerd.dev" class="text-blue-500 hover:underline ml-1">
+            tinkernerd.dev
+          </a>
+        </p>
+      </div>
+
+      <!-- Social Links -->
+      <div class="flex gap-4 mt-4">
+        {socialLinksArray.map((link) => (
+          <a
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-gray-600 dark:text-gray-300 hover:text-blue-500 transition-all"
+            aria-label={link.title}
+          >
+            <Icon name={link.icon} class="w-6 h-6" />
+          </a>
+        ))}
+      </div>
+
+      <!-- Download VCF Button -->
+      <a 
+        href="/Nick-Stull.vcf" 
+        download="Nick-Stull.vcf" 
+        class="mt-6 inline-block bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-all transform hover:scale-105"
+      >
+        Download Contact Card
+      </a>
+    </div>
+      <!-- Contact Form (Right) -->
+      <div class="border border-white rounded-xl p-8 w-full lg:w-1/2">
+
+        <h3 class="text-2xl font-semibold mb-4">Get in Touch</h3>
+        <form action={import.meta.env.PUBLIC_FORMSPREE_ENDPOINT} method="POST" class="space-y-4">
+          <div>
+            <label class="block text-gray-700 dark:text-gray-300 mb-1">Your email:</label>
+            <input type="email" name="email" class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100" required>
+          </div>
+          <div>
+            <label class="block text-gray-700 dark:text-gray-300 mb-1">Your message:</label>
+            <textarea name="message" class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100" rows="5" required></textarea>
+          </div>
+          <!-- Add more fields if needed -->
+          <button type="submit" class="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-all">
+            Send
+          </button>
+        </form>
+      </div>
+
     </div>
   </section>
+  </body>
 </Layout>
