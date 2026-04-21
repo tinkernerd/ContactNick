@@ -3,9 +3,9 @@ import type { NavLinks, SiteConfig, SocialLinks, GithubInfo} from '@/types'
 
 export const siteConfig: SiteConfig = {
 	// Used as both a meta property (src/components/BaseHead.astro L:31 + L:49) & the generated satori png (src/pages/og-image/[slug].png.ts)
-	author: 'Nick Stull',
+	author: 'Nicholas Stull',
 	// Meta property used to construct the meta title property, found in src/components/BaseHead.astro L:11
-	title: 'Contact Nick',
+	title: 'Contact KF8FLI',
 	// Meta property used as the default description meta property
 	description: 'Welcome, come tinker with me.',
   // OG Image
@@ -47,13 +47,18 @@ export const socialLinks: SocialLinks = {
   },
   email: {
     title: 'Email',
-    url: 'mailto:nick@tinkernerd.dev',
+    url: 'mailto:kf8fli@gmail.com',
     icon: 'tabler:brand-mailgun',
   },
-  portfolio: {
-    title: 'Portfolio',
-    url: 'https://photos.tinkernerd.com',
-    icon: 'material-symbols:camera',
+  qrz: {
+    title: 'QRZ',
+    url: 'https://www.qrz.com/db/KF8FLI',
+    icon: 'tabler:radio',
+  },
+  contact: {
+    title: 'Contact Me',
+    url: '/kf8fli.vcf',
+    icon: 'tabler:address-book',
   }
 };
 

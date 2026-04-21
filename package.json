@@ -12,13 +12,14 @@
     "start": "astro dev"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.4",
-    "@tailwindcss/vite": "^4.0.14",
-    "astro": "^5.5.2",
+    "@astrojs/check": "^0.9.8",
+    "@tailwindcss/vite": "^4.2.2",
+    "astro": "^5.18.1",
     "astro-icon": "^1.1.5",
-    "tailwindcss": "^4.0.14"  },
+    "tailwindcss": "^4.2.2"
+  },
   "devDependencies": {
-    "@iconify-json/material-symbols": "^1.2.16",
-    "@iconify-json/tabler": "^1.2.17"
+    "@iconify-json/material-symbols": "^1.2.67",
+    "@iconify-json/tabler": "^1.2.33"
   }
 }

@@ -5,7 +5,6 @@ const socialLinksArray = Object.values(socialLinks);
 import { siteConfig } from "@/site-config";
 import "../styles/global.css";
 
-const endpoint = import.meta.env.PUBLIC_FORMSPREE_ENDPOINT;
 
 ---
 
@@ -31,42 +30,41 @@ const endpoint = import.meta.env.PUBLIC_FORMSPREE_ENDPOINT;
 </head>
   <body class="flex flex-col items-center justify-center min-h-screen p-4">  <!-- Full-width Background Section -->
   <section class="w-full py-12 px-6 lg:px-16">
-    <div class="flex flex-col lg:flex-row gap-12 max-w-6xl mx-auto">
+    <div class="flex flex-col gap-12 max-w-4xl mx-auto">
       
     <!-- About Section (Left) -->
-    <div class="border border-white rounded-xl p-8 w-full lg:w-1/2">
+    <div class="border border-white rounded-xl p-8 w-full">
       <!-- Profile Image -->
       <div class="flex justify-center lg:justify-start mb-6">
         <img 
-          src="https://cdn.tinkernerd.dev/profile.jpg" 
-          alt="Nick Stull" 
+          src="https://gravatar.com/avatar/ab58fe7213ba269ba2cfbe70877dd318ed7b5ba64243e5c48e79c8b8c6223aae?s=200" 
+          alt="Nicholas Stull" 
           class="w-40 h-40 rounded-xl object-cover shadow-md"
         />
       </div>
 
-      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-1">Nick Stull</h2>
-      <p class="text-xl text-gray-600 dark:text-gray-300 mb-4">Developer & Tech Enthusiast</p>
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-1">Nicholas Stull • KF8FLI</h2>
+      <p class="text-xl text-gray-600 dark:text-gray-300 mb-4">A&amp;P Student • Amateur Radio • Tech</p>
 
       <p class="text-base text-gray-700 dark:text-gray-300 mb-4">
-        Hi, I’m <span class="font-semibold">Nick</span> — a developer and tech enthusiast with a passion for building cool stuff. Feel free to explore my links below or send me a message!
-      </p>  
+        Hi, I’m Nick — KF8FLI. I’m an A&amp;P student currently in Traverse City, Michigan with a background in IT and networking.
+      </p>
 
-      <div class="space-y-2 text-base text-gray-700 dark:text-gray-300 mb-4">
-        <p>
-          <span class="font-medium">Email:</span>
-          <a href="mailto:nick@tinkernerd.dev" class="text-blue-500 hover:underline ml-1">
-            nick@tinkernerd.dev
-          </a>
-        </p>
-        <p>
-          <span class="font-medium">Website:</span>
-          <a href="https://tinkernerd.dev" class="text-blue-500 hover:underline ml-1">
-            tinkernerd.dev
-          </a>
-        </p>
-      </div>
+      <p class="text-base text-gray-700 dark:text-gray-300 mb-4">
+        I enjoy portable and field‑deployable comms, Raspberry Pi hotspots, temporary repeater setups, and getting into HF radio while pursuing my General license.
+      </p>
 
-      <!-- Social Links -->
+      <p class="text-base text-gray-700 dark:text-gray-300 mb-4">
+        I enjoy learning, building, and experimenting at the intersection of aviation, radio, and technology — and I’m always happy to talk with others who share similar interests.
+      </p>
+
+      <p class="text-sm text-gray-500 dark:text-gray-400 italic">
+        Fueled by caffeine, sarcasm, and whatever God allows today.
+      </p>
+
+
+      
+  <!-- Social Links -->
       <div class="flex gap-4 mt-4">
         {socialLinksArray.map((link) => (
           <a
@@ -80,37 +78,7 @@ const endpoint = import.meta.env.PUBLIC_FORMSPREE_ENDPOINT;
           </a>
         ))}
       </div>
-
-      <!-- Download VCF Button -->
-      <a 
-        href="/Nick-Stull.vcf" 
-        download="Nick-Stull.vcf" 
-        class="mt-6 inline-block bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-all transform hover:scale-105"
-      >
-        Download Contact Card
-      </a>
-    </div>
-      <!-- Contact Form (Right) -->
-      <div class="border border-white rounded-xl p-8 w-full lg:w-1/2">
-
-        <h3 class="text-2xl font-semibold mb-4">Get in Touch</h3>
-        <form action={import.meta.env.PUBLIC_FORMSPREE_ENDPOINT} method="POST" class="space-y-4">
-          <div>
-            <label class="block text-gray-700 dark:text-gray-300 mb-1">Your email:</label>
-            <input type="email" name="email" class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100" required>
-          </div>
-          <div>
-            <label class="block text-gray-700 dark:text-gray-300 mb-1">Your message:</label>
-            <textarea name="message" class="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100" rows="5" required></textarea>
-          </div>
-          <!-- Add more fields if needed -->
-          <button type="submit" class="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-all">
-            Send
-          </button>
-        </form>
-      </div>
-
     </div>
   </section>
   </body>
-</Layout>
+</html>
